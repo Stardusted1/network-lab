@@ -12,23 +12,18 @@ public class PersonToCarOwnership {
 	private Person owner;
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Car property;
-
 	public Long getId() {
 		return id;
 	}
-
 	public Person getOwner() {
 		return owner;
 	}
-
 	public Car getProperty() {
 		return property;
 	}
-
 	public void setOwner(Person owner) {
 		this.owner = owner;
 	}
-
 	public void setProperty(Car property) {
 		this.property = property;
 	}

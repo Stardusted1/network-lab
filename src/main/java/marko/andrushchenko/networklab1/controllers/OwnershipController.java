@@ -6,7 +6,8 @@ import marko.andrushchenko.networklab1.entities.PersonToCarOwnership;
 import marko.andrushchenko.networklab1.service.interfaces.PersonToCarOwnershipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+@RestController
+@RequestMapping("/demo")
 public class OwnershipController {
 	@Autowired
 	PersonToCarOwnershipRepository ownershipRepository;
