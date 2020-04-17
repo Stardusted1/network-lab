@@ -1,4 +1,4 @@
-package marko.andrushchenko.networklab1.controllers;
+package marko.andrushchenko.networklab1.controllers.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

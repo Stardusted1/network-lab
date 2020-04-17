@@ -1,4 +1,4 @@
-package marko.andrushchenko.networklab1.controllers;
+package marko.andrushchenko.networklab1.controllers.rest;
 
 import marko.andrushchenko.networklab1.entities.Car;
 import marko.andrushchenko.networklab1.entities.Person;

@@ -1,0 +1,18 @@
+.center-content {
+  display: block;
+  margin: auto;
+}
+
+.content {
+  border: 1px solid #dee2e6!important;
+  border-radius: .25rem!important;
+  height: 400px;
+}
+
+.content-row {
+  padding-bottom: 10px;
+  background-color: #fefefe;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
