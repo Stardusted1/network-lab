@@ -7,12 +7,13 @@
     <title>lab-networks</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../static/assets/css/styles.css?h=aa8bb984b59c270aeedc977628e153e5">
+    <link rel="stylesheet" href="/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-resource.js"></script>
+
 </head>
 
-<body>
+<body ng-app="greeting">
 <div class="modal fade" role="dialog" tabindex="-1" id="add-person-modal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -36,13 +37,14 @@
                     <div class="form-group" data-toggle="tooltip" data-bs-tooltip=""
                          title="insert car id, split by coma"><label>Cars own</label><input class="form-control"
                                                                                             type="text"
-                                                                                            id="add-person-weight">
+                                                                                            id="add-person-ownership">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-light" type="button" data-dismiss="modal">Close</button>
-                <button class="btn btn-primary" type="button" data-dismiss="modal">Save</button>
+                <button class="btn btn-primary" type="button" data-dismiss="modal"
+                        ng-app="greeting" ng-controller="greetingController" ng-click="addPerson()">Save</button>
             </div>
         </div>
     </div>
@@ -58,23 +60,23 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group"><label>Model</label><input class="form-control" type="text"
-                                                                       id="add-person-fname"></div>
+                                                                       id="add-car-model"></div>
                     <div class="form-group"><label>Engine value</label><input class="form-control" type="text"
-                                                                              id="add-person-lname"></div>
+                                                                              id="add-car-evalue"></div>
                     <div class="form-group" data-toggle="tooltip" data-bs-tooltip="" title="split id by comas"><label>Owners</label><input
-                            class="form-control" type="text" id="add-person-age"></div>
+                            class="form-control" type="text" id="add-car-ownership"></div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-light" type="button" data-dismiss="modal">Close</button>
-                <button class="btn btn-primary" type="button">Save</button>
+                <button class="btn btn-primary" type="button" data-dismiss="modal" ng-controller="greetingController" ng-click="addCar()">Save</button>
             </div>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="row row-cols-4 content-row rounded shadow" id="persons">
-        <div class="col-12">
+    <div class="row row-cols-4 content-row rounded shadow" id="persons" ng-controller="greetingController" data-ng-init="updatePersons()">
+        <div class="col-12" id="person-heading">
             <div>
                 <h4>Persons</h4>
             </div>
@@ -97,7 +99,7 @@
         <div class="col content" id="add-person-col">
             <h1 class="text-center text-primary" style="display: block;margin: auto;padding-top: 50%;">Add</h1>
             <button class="btn btn-primary" type="button" style="display: block;margin: auto;" data-toggle="modal"
-                    data-target="#add-person-modal"><i class="fa fa-plus" id="add-person"></i></button>
+                    data-target="#add-person-modal"><i class="fa fa-plus"></i></button>
         </div>
     </div>
     <div class="row" id="alerts">
@@ -108,8 +110,8 @@
                 <span><strong>Alert</strong> text.</span></div>
         </div>
     </div>
-    <div class="row row-cols-4 content-row rounded shadow" id="cars">
-        <div class="col-12">
+    <div class="row row-cols-4 content-row rounded shadow" id="cars" ng-controller="greetingController" data-ng-init="updateCars()">
+        <div class="col-12" id="cars-heading">
             <div>
                 <h4>Cars</h4>
             </div>
@@ -135,8 +137,8 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="../static/assets/js/bs-init.js?h=de81e5c47df32ab5ad05d8b1819c4c2a"></script>
-<script src="../static/assets/js/core.js"></script>
+<script src="/bs-init.js"></script>
+<script src="/core.js"></script>
 </body>
 
 </html>

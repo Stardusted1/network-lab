@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface CarRepository extends CrudRepository<Car, Long> {
 	public Car findCarByIdEquals(Long id);
-	public Car deleteCarByIdEquals(Long id);
+	public void  deleteCarByIdEquals(Long id);
 
 }

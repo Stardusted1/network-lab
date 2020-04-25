@@ -5,6 +5,9 @@ import marko.andrushchenko.networklab1.service.interfaces.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
+
 @Service
 public class CarRepositoryImpl implements CarRepository {
 
@@ -25,7 +28,7 @@ public class CarRepositoryImpl implements CarRepository {
 		carRepository.save(car);
 		return true;
 	}
-
+	@Transactional
 	@Override
 	public boolean deleteCar(Long id) {
 		try {

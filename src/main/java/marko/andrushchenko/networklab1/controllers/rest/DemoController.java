@@ -47,8 +47,10 @@ public class DemoController {
 
 			personRepository.createPerson(person);
 			carRepository.createCar(car);
+
+
 			person.setOwnership(ownerships);
-			car.setOwners(ownerships);
+			car.setOwnersship(ownerships);
 			ownershipRepository.createOwnership(ownership);
 			personRepository.updatePerson(person);
 			carRepository.updateCar(car);

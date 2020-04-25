@@ -6,12 +6,16 @@ import javax.persistence.*;
 public class PersonToCarOwnership {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ownership_id")
 	private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "person_id")
 	private Person owner;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "car_id")
 	private Car property;
+
 	public Long getId() {
 		return id;
 	}

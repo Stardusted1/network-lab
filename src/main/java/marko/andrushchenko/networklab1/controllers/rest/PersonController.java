@@ -1,6 +1,7 @@
 package marko.andrushchenko.networklab1.controllers.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import marko.andrushchenko.networklab1.entities.Person;
 import marko.andrushchenko.networklab1.service.interfaces.PersonRepository;
@@ -8,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/")
 public class PersonController {
 
 	@Autowired
@@ -32,7 +33,17 @@ public class PersonController {
 	@PatchMapping("{id}")
 	public Person updatePerson(@PathVariable Long id, @RequestBody String body) throws JsonProcessingException {
 		Person person = new ObjectMapper().readValue(body, Person.class);
-		return personRepository.updatePerson(person);
+		try {
+			Person person_from_db =  personRepository.getPerson(id);
+			person_from_db.setFirstName(person.getFirstName());
+			person_from_db.setLastName(person.getLastName());
+			person_from_db.setAge(person.getAge());
+			person_from_db.setHeight(person.getHeight());
+			person_from_db.setWeight(person.getWeight());
+			return personRepository.updatePerson(person_from_db);
+		} catch (Exception e){
+			return null;
+		}
 	}
 
 	@PutMapping()
@@ -40,5 +51,4 @@ public class PersonController {
 		Person person = new ObjectMapper().readValue(body, Person.class);
 		return personRepository.createPerson(person);
 	}
-
 }
