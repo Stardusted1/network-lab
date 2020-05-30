@@ -31,7 +31,8 @@ public class PersonController {
 	}
 
 	@PatchMapping("{id}")
-	public Person updatePerson(@PathVariable Long id, @RequestBody String body) throws JsonProcessingException {
+	public Person updatePerson(@PathVariable Long id, @RequestBody String body)
+			throws JsonProcessingException {
 		Person person = new ObjectMapper().readValue(body, Person.class);
 		try {
 			Person person_from_db =  personRepository.getPerson(id);
